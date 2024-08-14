@@ -16,3 +16,22 @@ for now this thing is named the bloodflame archive cuz i have no idea what to na
 y'knwo what , maybe this can be known better as my CTF diary since i yap so much bs here ahhahaa
 aaaaaaaaany ways since i last formatted pc , i lost all my progress(diary) on SKR, gotta redo it here , for now this is all i have , im a poor man , poor of information 
 its 4 01 , my sleep is fucked, i havent finished my dailies , im going to sleep , need to contol the ctf addiction !!!
+
+
+kk challenge 2 
+another curl challange yay!!!
+first try was -> curl http://165.227.106.113/header.php
+- error got error saying wrong user agent , so curl mentioned that i can specify an agent (whatever that is) to enter the site.
+so i tried curl --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/header.php which used the agent given by the site
+- next error says i did not come from a site called awesomesauce.com (how dare he discriminate me)
+therefore after some bs and more bs , i figured that i couuld use a referer
+found out suing curl -help all   which btw shows all functions of curl
+then the command become like this and the flag came out idk how hahahha 
+
+curl -e awesomesauce.com  --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/header.php
+
+challenge link -> https://ctflearn.com/challenge/109
+
+yup thats all , fair diffuculty for meduim , my brain not too fucked HAHHAHA
+
+

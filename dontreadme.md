@@ -3,7 +3,7 @@ alright its 3 50 in the fcuking morning idk what better to do than stf instad of
 curl -X POST -d "username=admin&pass -d=71up-dnlkadsf" http://165.227.106.113/post.php
 this is the challange link btw , you need to login to see -> https://ctflearn.com/challenge/114 
 
-welp apparenntly this command is quite useful , yeah...
+welp apparenntly this command is quite useful , yeah... 
 curl or client URL can help you get the webpage from terminal (as if you dont have a browser....)
 it also has parameters you can use to send data for example , nice right ? (as if a browser couldnt do it)
 according to the curl -h , the -d parameter allows you to send data ain a form of http post request . honestly have no idea what the -X means ahah
@@ -33,5 +33,10 @@ curl -e awesomesauce.com  --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/h
 challenge link -> https://ctflearn.com/challenge/109
 
 yup thats all , fair diffuculty for meduim , my brain not too fucked HAHHAHA
+
+
+I HAVE TO SAY , NO WEED OR GACHA PULLS SHOULD BE ABLE TO BEAT THE HIGH I JUST FELT SOLVING MY FIRST HARD CHALLANGE 
+OMG
+
 
 

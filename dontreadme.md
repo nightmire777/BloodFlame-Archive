@@ -113,6 +113,14 @@ it returned the information of the first dog and the flag
 
 alright thats a grandfather level story , time to rest , enough games today 
 
+# 4 
+okok legit final oen for today
+challenge -> https://ctflearn.com/challenge/691
+
+this one quite simple, nc commect to the server , play the betting game 
+simple concept of betting , guess a number, win = ur money + initial bet, loose = initial money - bet
+so if 500 - 500 = 1000 , that explains all i need to redeem the flag 
+
 
 
 

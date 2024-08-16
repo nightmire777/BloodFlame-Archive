@@ -18,7 +18,7 @@ aaaaaaaaany ways since i last formatted pc , i lost all my progress(diary) on SK
 its 4 01 , my sleep is fucked, i havent finished my dailies , im going to sleep , need to contol the ctf addiction !!!
 
 
-kk challenge 2 
+# kk challenge 2 
 another curl challange yay!!!
 first try was -> curl http://165.227.106.113/header.php
 - error got error saying wrong user agent , so curl mentioned that i can specify an agent (whatever that is) to enter the site.
@@ -34,7 +34,7 @@ challenge link -> https://ctflearn.com/challenge/109
 
 yup thats all , fair diffuculty for meduim , my brain not too fucked HAHHAHA
 
-#3
+# challange 3
 I HAVE TO SAY , NO WEED OR GACHA PULLS SHOULD BE ABLE TO BEAT THE HIGH I JUST FELT SOLVING MY FIRST HARD CHALLANGE 
 alright so heres the story and challenge link : https://ctflearn.com/challenge/149
 so yeah this gonna be a long story , future me or whoever i share this with , get ready
@@ -55,7 +55,7 @@ Well, guess what i did , yes i tried to guess the style of the query like an idi
 1st guess : select * from dogs where id = 'userinput'
 with this many attempts i took and none succeeded , not even outputting the 1st dog's name. 
 
-AAfter a few hours of searching , i came across something about information.schema.tables. 
+After a few hours of searching , i came across something about information.schema.tables. 
 OH , after 1 semester of sql , i didnt even know this table existed....
 In fact , many more tables not only this one....
 that aside, i tried to enter some strings like 
@@ -84,12 +84,12 @@ cant explain all but i know what some do
 finally the program returned 3 files, a log file , target file and lastly a file named 'session.sqlite'
 unfortunatly the session file could not be opened while both text files were repeated information showed in the terminal 
 but it DID give something useful, which was the payload used to attack:
----
+
 Parameter: id (GET)
     Type: UNION query
     Title: Generic UNION query (NULL) - 4 columns
     Payload: id=1 UNION ALL SELECT NULL,NULL,CONCAT(0x71626a7071,0x736746507445514d6c6d794b6e65535a4d514a784959674a694474465443666e4145794e51454e41,0x7162787071),NULL-- -
----
+
 
 i then used the payload to craete this attempt: 
 1 UNION ALL SELECT NULL,CONCAT(0x71626a7071,0x736746507445514d6c6d794b6e65535a4d514a784959674a694474465443666e4145794e51454e41,0x7162787071),NULL,NULL-- -

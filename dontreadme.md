@@ -121,7 +121,13 @@ this one quite simple, nc commect to the server , play the betting game
 simple concept of betting , guess a number, win = ur money + initial bet, loose = initial money - bet
 so if 500 - 500 = 1000 , that explains all i need to redeem the flag 
 
+#5 
+alright heres a cipher one , easyy one, let my mind rest a lil
 
+given the cipher text : gwox{RgqssihYspOntqpxs}
+and the key : blorpy
+
+all i need to do is ppput it into a Vigenere Cipher webpage and DONE
 
 
 

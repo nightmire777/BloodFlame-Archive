@@ -68,6 +68,7 @@ the website returned : PD9waHAKJGhvc3QgPSAibG9jYWxob3N0IjsKJHVzZXJuYW1lID0gImN1Y
 
 
 when decoded we get the php file and BOOM its there : 
+```
 <?php
 $host = "localhost";
 $username = "cubaan mengehack ka itu";
@@ -82,6 +83,7 @@ if ($conn->connect_error) {
 
 echo "Connected successfully";
 ?>
+```
 
 
 

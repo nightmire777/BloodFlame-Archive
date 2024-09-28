@@ -9,7 +9,6 @@ and more other pages
 
 ![Screenshot from 2024-09-28 14-48-18](https://github.com/user-attachments/assets/62ad5390-ced9-4a86-9d7b-4882b7fa5326)
 ![Screenshot from 2024-09-28 14-48-24](https://github.com/user-attachments/assets/d4f72b26-f04c-4cc7-9c31-c7b5bbe07f45)
-![Screenshot from 2024-09-28 14-48-37](https://github.com/user-attachments/assets/42d6d921-d50a-4d02-8ff7-86a05e280a3d)
 ![Screenshot from 2024-09-28 14-48-37](https://github.com/user-attachments/assets/cb3cc791-60b4-4555-9a87-980993d51130)
 ![Screenshot from 2024-09-28 14-48-53](https://github.com/user-attachments/assets/8643abda-4e14-4957-8d3c-7ff154de09a3)
 

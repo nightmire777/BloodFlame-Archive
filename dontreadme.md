@@ -126,7 +126,13 @@ anyways ending this on a good note, heres a banger i listened to while scritchin
 
 quick take away to self, please please please inspect the code carefully and if possible in visual studio code so you dont miss any pages or fucntion....
 
-
+# --- command injection 
+challenge -> https://ctflearn.com/challenge/150
+i dont undertsand.....
+all i know is remember to always test for command injection =) 
+try ls, cat /../../../etc/passwd
+you never know when something is being executed by a shell, especially when it is as simple as arithmetic 
+this one quite tricky, did not find much hints on the script being executed on the shell (or maybe im blind)
 
 
 <!--- 

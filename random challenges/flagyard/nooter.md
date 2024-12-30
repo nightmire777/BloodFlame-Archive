@@ -35,4 +35,5 @@ AND THERE WE GO
 ![image](https://github.com/user-attachments/assets/3ddfe550-42fd-4313-af15-88ffeb5b77d7)
 
 
-file:///home/mire/Pictures/Screenshots/Screenshot%20from%202024-12-30%2011-15-54.png
+![image](https://github.com/user-attachments/assets/fe4f4e25-fa74-4886-9bd8-655f6e5adfb7)
+

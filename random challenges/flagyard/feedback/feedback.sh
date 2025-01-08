@@ -36,3 +36,9 @@ do
 	done;
 	((pos += 1)) #increase the position 
 done;
+
+#references =)
+#https://curl.se/docs/manpage.html
+#https://stackoverflow.com/questions/70896179/how-to-filter-text-data-in-bash-more-efficiently
+#https://www.freecodecamp.org/news/bash-scripting-tutorial-linux-shell-script-and-command-line-for-beginners/#heading-for-loop
+#https://stackoverflow.com/questions/38021348/how-can-i-echo-out-things-without-a-newline

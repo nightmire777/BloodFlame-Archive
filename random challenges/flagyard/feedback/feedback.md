@@ -29,6 +29,6 @@ time to pull out some wierd scripts
 
 AND after some time, got it....
 
-Script attaced for furturre references
+Script attaced for furturre references, in this situattion, i had to capture a cookie file before hand using curl 
 
 ![image](https://github.com/user-attachments/assets/bc92518b-1b34-40f9-a994-21c552786cfc)

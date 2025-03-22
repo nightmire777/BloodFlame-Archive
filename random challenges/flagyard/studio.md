@@ -14,10 +14,12 @@ Nope, no path traversal helped.... It just renders the defualt home.html page
 Turns out this section of the code is quite vulnerable and absolute path will for whatever reason have more priority over relative path. so yea the file is in, now what?
 
 
+![image](https://github.com/user-attachments/assets/7fcbeb03-43ef-4e00-8797-a3d8ee15c7d9)
 
 Here is where is gets funny, deepseek will explain =) 
 
 ```<textarea type="text" id="page" name="page" >{{config.__class__.__init__.__globals__['os'].popen('ls -la').read()}}</textarea>```
+
 
 
 

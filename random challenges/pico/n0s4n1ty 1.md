@@ -1,6 +1,5 @@
-![image](https://github.com/user-attachments/assets/4f50e8b9-a702-45f1-8d52-8ad5916663ac)> File upload exploit
+> File upload exploit
 > not sanitizing user input causing RCE
-
 
 ![image](https://github.com/user-attachments/assets/1f9d22df-172d-4644-959f-80f14288176d)
  

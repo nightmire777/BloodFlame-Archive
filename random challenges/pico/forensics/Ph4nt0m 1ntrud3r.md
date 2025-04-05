@@ -17,6 +17,7 @@ Bunch of testing later, we see that there is somewhat a flag but its kinda messe
 first we determine try to mess around and play the puzzle, with 4 ++ failed flag submission, idw to push my limits, 
 ![image](https://github.com/user-attachments/assets/4513db61-7587-467a-ad17-d1bc7482f83b)
 Even ai cant get it 
+![image](https://github.com/user-attachments/assets/356c066a-303c-492b-a5d6-7c0a94cbf1e2)
 
 
 Well after some testing, it wwas determined that the time was the key.

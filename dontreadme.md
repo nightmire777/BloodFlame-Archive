@@ -7,6 +7,146 @@
 > 
 > lastly, I wish whoever that is reading this a good day and you achieve what you came here for
 
+```
+
+//lets goooooo i got to use oop at workkkkkkkk!!!!
+	let user = {
+		name: 'NA',
+		id: 'NA',
+		number: 'NA',
+		email: 'NA',
+		
+		setName: function(name){
+			this.name = name.replace("Name","").replace(" ","");
+		},
+		setID: function(vid){
+			this.id = vid.replace("VID","").replace(" ","");
+		},
+		setNumber: function(number){
+			this.number = number.replace("Number","").replace(" ","");
+		},
+		setEmail: function(email){
+			this.email = email.replace("Email","").replace(" ","");
+		},
+		
+		getDetails: function(){
+			console.log(`${this.name}\n${this.id}\n${this.number}\n${this.email}\n`);
+			return `${this.name}\n${this.id}\n${this.number}\n${this.email}\n`;
+		},
+		
+	}
+	
+//function to append text to a selected textarea
+function appendTAF(ta, text){
+	var target = document.getElementById(ta); //find the text area
+	var currentData = target.value.trim();
+	var newData = `${currentData}${text}`;
+	target.value = newData;
+}
+
+//req = need to raise IAM reactivation
+//tbc = vpn extended 
+//baru = new VPN user
+function req(){var text = document.getElementById("VPNVendorMsgREQ").innerText;appendTAF("output-req",text);}
+function tbc(){var text = document.getElementById("VPNVendorMsgTBC").innerText;appendTAF("output-tbc",text);}
+function baru(){var text = document.getElementById("NewVPNuser").innerText;appendTAF("output-new",text);}
+
+
+//main processing function for data in VPN 
+	function vpnreq(){
+		var data = document.getElementById("vpnreq").value;
+
+		let lines = data.split('\n'); // Split the string into an array of lines
+		
+		var container = document.getElementById("users");
+		
+		for (let c=0;c < lines.length;c++){
+			var line = lines[c];
+			if (line.includes("Name")) {
+				
+				//creating a new `user` object called `enduser`
+				let enduser = Object.create(user);
+				enduser.setName(lines[c]);
+				enduser.setID(lines[c+1]);
+				enduser.setNumber(lines[c+2]);
+				enduser.setEmail(lines[c+3]);
+				
+				appendTAF("recepients", ";")
+				appendTAF("recepients", enduser.email.trim())
+				
+				
+				// Create the checkbox
+				let checkbox = document.createElement("input");
+				checkbox.type = "checkbox";
+				checkbox.id = enduser.email; 
+				
+				//create the button
+				let button1 = document.createElement("button");
+				button1.innerHTML = "Extend";
+				button1.addEventListener("click", function(){
+					appendTAF("output-extend",enduser.email);
+					document.getElementById(enduser.email).checked = true;
+				});
+				
+				let button2 = document.createElement("button");
+				button2.innerHTML = "No Extend";
+				button2.addEventListener("click", function(){
+					appendTAF("output-req",enduser.email);
+					document.getElementById(enduser.email).checked = true;
+				});
+				
+				let button3 = document.createElement("button");
+				button3.innerHTML = "New-User";
+				button3.addEventListener("click", function(){
+					appendTAF("output-new",enduser.email);
+					document.getElementById(enduser.email).checked = true;
+				});
+
+				// Append the checkbox and label to the body (or any other container)
+				let p = document.createElement("p"); //create the P element with the data
+				p.innerText = enduser.getDetails();; //populate the field	
+				
+				//append all elements to the site 
+				container.appendChild(p);
+				container.appendChild(checkbox);
+				container.appendChild(button1);
+				container.appendChild(button2);
+				container.appendChild(button3);
+
+			}			
+		}
+
+    };
+	
+function copyVPNvendorREQ() {var copyText = document.getElementById("VPNVendorMsgREQ").innerText;var textarea = document.createElement("textarea");textarea.value = copyText;document.body.appendChild(textarea);textarea.select();document.execCommand("copy");document.body.removeChild(textarea);
+	showToast();
+}
+
+function copyVPNvendorTBC() {var copyText = document.getElementById("VPNVendorMsgTBC").innerText;var textarea = document.createElement("textarea");textarea.value = copyText;document.body.appendChild(textarea);textarea.select();document.execCommand("copy");document.body.removeChild(textarea);
+	showToast();
+}
+
+function copyNewVPNuser() {var copyText = document.getElementById("NewVPNuser").innerText;var textarea = document.createElement("textarea");textarea.value = copyText;document.body.appendChild(textarea);textarea.select();document.execCommand("copy");document.body.removeChild(textarea);
+	showToast();
+}
+
+//pop up to show copy text success
+function showToast() {
+    let toast = document.getElementById("toast");
+    toast.style.display = "block";
+    toast.style.opacity = 1;
+
+    setTimeout(function() {
+        toast.style.transition = "opacity 1.5s ease-out";
+        toast.style.opacity = 0;
+        setTimeout(function() {
+            toast.style.display = "none";
+        }, 500); // Duration of fade-out effect
+    }, 500); // Duration the toast is visible
+}
+	
+</script>
+```
 
 # --- n.d
 first try was -> curl http://165.227.106.113/header.php

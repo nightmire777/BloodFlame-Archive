@@ -14,6 +14,7 @@ In the end i broke the site with this payload, cuz it keeps redirecting me.
 
 but on the bright side, we got the admin's cookie by also redirectling the poor fella =)
 
-![image](https://github.com/user-attachments/assets/c4c656ad-7fc6-4146-8e54-08b5fe16d7b4)
+![image](https://github.com/user-attachments/assets/33f5365f-67fe-4dd9-bf31-299e166318fb)
+
 
 

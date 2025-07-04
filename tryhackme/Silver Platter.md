@@ -38,6 +38,7 @@ Anyways , i guess im tyler now, and he can sudo, done
 
 
 
+> ![image](https://github.com/user-attachments/assets/fd0ff1a5-e3d9-4050-8640-c42687dddf1c)
 
 
 

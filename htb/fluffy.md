@@ -157,6 +157,7 @@ mentioned cves in the pdf
 > CVE-2025-24996
 External control of file name or path in Windows NTLM allows an unauthorized attacker to perform spoofing over a network.
 ![image](https://github.com/user-attachments/assets/3667dfe0-b375-45c7-a6a1-4f0339a83faa)
+![image](https://github.com/user-attachments/assets/44a1832b-18f7-43d9-9149-ef50b6717f35)
 
 > CVE-2025-24071
 > CVE-2025-46785

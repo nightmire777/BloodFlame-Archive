@@ -1,0 +1,167 @@
+> s8 - window - ez -  i cannot do
+
+
+> [!NOTE]  
+> i have no idea what an ad is...
+> we ball im going in blind
+> 
+> future me is gonna look at this and hopefully think 'this idiot'
+> 
+> but this is a self note guided by a writeup 
+
+<details>
+<summary>Nmap scan</summary>
+
+```
+# Nmap 7.95 scan initiated Fri Jul  4 05:33:07 2025 as: /usr/lib/nmap/nmap --privileged -sC -sV -O -v -oN Fluffy 10.10.11.69
+Nmap scan report for 10.10.11.69
+Host is up (0.27s latency).
+Not shown: 989 filtered tcp ports (no-response)
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain        Simple DNS Plus
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2025-07-05 00:33:33Z)
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: fluffy.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-07-05T00:35:06+00:00; +15h00m02s from scanner time.
+| ssl-cert: Subject: commonName=DC01.fluffy.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:<unsupported>, DNS:DC01.fluffy.htb
+| Issuer: commonName=fluffy-DC01-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2025-04-17T16:04:17
+| Not valid after:  2026-04-17T16:04:17
+| MD5:   2765:a68f:4883:dc6d:0969:5d0d:3666:c880
+|_SHA-1: 72f3:1d5f:e6f3:b8ab:6b0e:dd77:5414:0d0c:abfe:e681
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: fluffy.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-07-05T00:35:05+00:00; +15h00m02s from scanner time.
+| ssl-cert: Subject: commonName=DC01.fluffy.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:<unsupported>, DNS:DC01.fluffy.htb
+| Issuer: commonName=fluffy-DC01-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2025-04-17T16:04:17
+| Not valid after:  2026-04-17T16:04:17
+| MD5:   2765:a68f:4883:dc6d:0969:5d0d:3666:c880
+|_SHA-1: 72f3:1d5f:e6f3:b8ab:6b0e:dd77:5414:0d0c:abfe:e681
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: fluffy.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-07-05T00:35:06+00:00; +15h00m02s from scanner time.
+| ssl-cert: Subject: commonName=DC01.fluffy.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:<unsupported>, DNS:DC01.fluffy.htb
+| Issuer: commonName=fluffy-DC01-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2025-04-17T16:04:17
+| Not valid after:  2026-04-17T16:04:17
+| MD5:   2765:a68f:4883:dc6d:0969:5d0d:3666:c880
+|_SHA-1: 72f3:1d5f:e6f3:b8ab:6b0e:dd77:5414:0d0c:abfe:e681
+3269/tcp open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: fluffy.htb0., Site: Default-First-Site-Name)
+|_ssl-date: 2025-07-05T00:35:05+00:00; +15h00m02s from scanner time.
+| ssl-cert: Subject: commonName=DC01.fluffy.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:<unsupported>, DNS:DC01.fluffy.htb
+| Issuer: commonName=fluffy-DC01-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2025-04-17T16:04:17
+| Not valid after:  2026-04-17T16:04:17
+| MD5:   2765:a68f:4883:dc6d:0969:5d0d:3666:c880
+|_SHA-1: 72f3:1d5f:e6f3:b8ab:6b0e:dd77:5414:0d0c:abfe:e681
+5985/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2019|10 (97%)
+OS CPE: cpe:/o:microsoft:windows_server_2019 cpe:/o:microsoft:windows_10
+Aggressive OS guesses: Windows Server 2019 (97%), Microsoft Windows 10 1903 - 21H1 (91%)
+No exact OS matches for host (test conditions non-ideal).
+TCP Sequence Prediction: Difficulty=254 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 15h00m01s, deviation: 0s, median: 15h00m01s
+| smb2-time: 
+|   date: 2025-07-05T00:34:29
+|_  start_date: N/A
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+
+Read data files from: /usr/share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jul  4 05:35:06 2025 -- 1 IP address (1 host up) scanned in 119.12 seconds
+```
+</details>
+
+<details>
+  <summary>Listing and connecting to SMB shares</summary>
+ 
+smbclient -L //10.10.11.69 -U j.fleischman
+```
+  Password for [WORKGROUP\j.fleischman]:
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	ADMIN$          Disk      Remote Admin
+	C$              Disk      Default share
+	IPC$            IPC       Remote IPC
+	IT              Disk      
+	NETLOGON        Disk      Logon server share 
+	SYSVOL          Disk      Logon server share 
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.10.11.69 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+```
+
+
+smbclient //10.10.11.69/IT -U j.fleischman --password=J0elTHEM4n1990!
+
+```
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Mon May 19 10:27:02 2025
+  ..                                  D        0  Mon May 19 10:27:02 2025
+  Everything-1.4.1.1026.x64           D        0  Fri Apr 18 11:08:44 2025
+  Everything-1.4.1.1026.x64.zip       A  1827464  Fri Apr 18 11:04:05 2025
+  KeePass-2.58                        D        0  Fri Apr 18 11:08:38 2025
+  KeePass-2.58.zip                    A  3225346  Fri Apr 18 11:03:17 2025
+  Upgrade_Notice.pdf                  A   169963  Sat May 17 10:31:07 2025
+
+		5842943 blocks of size 4096. 1567835 blocks available
+```
+
+Downloading files from the share 
+```
+smbclient //10.10.11.69/IT -U j.fleischman --password=J0elTHEM4n1990!
+Try "help" to get a list of possible commands.
+smb: \> recurse ON  //recursively get files
+smb: \> prompt OFF  // ignore prompt 
+smb: \> mget * //get all
+getting file \Everything-1.4.1.1026.x64.zip of size 1827464 as Everything-1.4.1.1026.x64.zip (121.6 KiloBytes/sec) (average 121.6 KiloBytes/sec)
+getting file \KeePass-2.58.zip of size 3225346 as KeePass-2.58.zip (838.1 KiloBytes/sec) (average 267.7 KiloBytes/sec)
+getting file \Upgrade_Notice.pdf of size 169963 as Upgrade_Notice.pdf (149.9 KiloBytes/sec) (average 261.0 KiloBytes/sec)
+```
+</details>
+
+Nice pdf, dont mnnd if i take a look 
+![image](https://github.com/user-attachments/assets/e1ba2b62-022b-43ac-a719-20b07168758c)
+
+mentioned cves in the pdf
+> CVE-2025-24996
+External control of file name or path in Windows NTLM allows an unauthorized attacker to perform spoofing over a network.
+![image](https://github.com/user-attachments/assets/3667dfe0-b375-45c7-a6a1-4f0339a83faa)
+
+> CVE-2025-24071
+> CVE-2025-46785
+> CVE-2025-29968
+> CVE-2025-21193
+> CVE-2025-3445
+
+

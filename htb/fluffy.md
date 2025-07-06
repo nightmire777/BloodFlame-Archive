@@ -151,18 +151,30 @@ getting file \Upgrade_Notice.pdf of size 169963 as Upgrade_Notice.pdf (149.9 Kil
 </details>
 
 Nice pdf, dont mnnd if i take a look 
+
 ![image](https://github.com/user-attachments/assets/e1ba2b62-022b-43ac-a719-20b07168758c)
 
 mentioned cves in the pdf
 > CVE-2025-24996
+
 External control of file name or path in Windows NTLM allows an unauthorized attacker to perform spoofing over a network.
 ![image](https://github.com/user-attachments/assets/3667dfe0-b375-45c7-a6a1-4f0339a83faa)
 ![image](https://github.com/user-attachments/assets/44a1832b-18f7-43d9-9149-ef50b6717f35)
 
 > CVE-2025-24071
+
+Exposure of sensitive information to an unauthorized actor in Windows File Explorer allows an unauthorized attacker to perform spoofing over a network.
+
 > CVE-2025-46785
+
+Buffer over-read in some Zoom Workplace Apps for Windows may allow an authenticated user to conduct a denial of service via network access.
 > CVE-2025-29968
+
+Improper input validation in Active Directory Certificate Services (AD CS) allows an authorized attacker to deny service over a network.
 > CVE-2025-21193
+
+Active Directory Federation Server Spoofing Vulnerability
 > CVE-2025-3445
+
 
 

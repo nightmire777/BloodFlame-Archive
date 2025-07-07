@@ -262,10 +262,25 @@ RELEASE THE HOUND
 but here we have it, good hound !
 ![image](https://github.com/user-attachments/assets/68d0e25f-0929-47bc-9695-21df4632c488)
 ![image](https://github.com/user-attachments/assets/8fc99465-4361-453a-b1fd-b97a765d1596)
+![image](https://github.com/user-attachments/assets/ae670e0a-bc69-4ef2-acc0-974b4dfb25ae)
 
 From this image, its knwon that agila has a service account manager role...
 
+![image](https://github.com/user-attachments/assets/b0c5342d-540e-42aa-b834-ccc4495af5ad)
+
+And from the servuce account manager role, we can see that we can do alot because of the GenericWrite permission. 
+
 </details>
+
+Next we start the atatck
+
+> give service manager role to agila and make fake cert
+![image](https://github.com/user-attachments/assets/2c6d7619-ef2a-4ca1-baf7-9bf33a76a7bf)
+
+> oh, kerberos is very dependent on time, im calling dio 
+>![image](https://github.com/user-attachments/assets/4addd188-9a23-4342-9fed-fd8a7be68cd8)
+> ![image](https://github.com/user-attachments/assets/e2c85061-4c56-4765-8ec1-16b20d250ff5)
+
 
 
 

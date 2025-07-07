@@ -203,7 +203,7 @@ but too bad this user too is unprivilleged
 
 bloodhound 
 =
-Using bloodhound, we can try to get 
+Using bloodhound, we can try to get some information on thhe users in the ad?
 <details>
 fleischman
 
@@ -254,7 +254,17 @@ INFO: Starting computer enumeration with 10 workers
 INFO: Querying computer: DC01.fluffy.htb
 INFO: Done in 00M 48S
 ```
-	
+RELEASE THE HOUND 
+![image](https://github.com/user-attachments/assets/a59f7c9c-5223-4dda-98e8-2d29da1e6096)
+
+> defenitely did not take an hour debugging postgresql, neo4j and bloodhound
+
+but here we have it, good hound !
+![image](https://github.com/user-attachments/assets/68d0e25f-0929-47bc-9695-21df4632c488)
+![image](https://github.com/user-attachments/assets/8fc99465-4361-453a-b1fd-b97a765d1596)
+
+From this image, its knwon that agila has a service account manager role...
+
 </details>
 
 

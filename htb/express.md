@@ -13,7 +13,7 @@ Note: the ssh port didnt yeild anything else after furhter scanning
 
 <img width="554" height="262" alt="image" src="https://github.com/user-attachments/assets/22781cde-935d-44d0-bfcf-8b17694225a7" />
 
--
+
 
 
 
@@ -28,4 +28,14 @@ Hashcat craking the hash ```hashcat -m 5400 ike.txt /usr/share/wordlists/rockyou
 <img width="841" height="340" alt="image" src="https://github.com/user-attachments/assets/5b396e9c-e780-41fa-b6d3-3ddd8f38194a" />
 
 using username ike and the cracked password, im in 
+
+
+now run linpeas on the target to noticce that it has a vulnerable sudo version
+<img width="808" height="112" alt="image" src="https://github.com/user-attachments/assets/4f91afc3-713c-4c4c-a9fd-cc51e3224cef" />
+
+
+
+grabbing a poc from github and were root 
+> https://github.com/mirchr/CVE-2025-32463-sudo-chwoot/blob/main/sudo-chwoot.sh
+<img width="1391" height="538" alt="image" src="https://github.com/user-attachments/assets/65f3e2e1-c87d-4e71-87b3-b69fa0172ddf" />
 

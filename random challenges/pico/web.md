@@ -1,9 +1,24 @@
 WEB!
 
-<details>
-  
-<summary>SSTI1</summary>
 
+
+
+
+
+<details><summary>WebDecode</summary>
+
+
+<img width="773" height="253" alt="image" src="https://github.com/user-attachments/assets/267ca65b-8983-43d4-8af9-652498ff71fb" />
+<img width="1148" height="500" alt="image" src="https://github.com/user-attachments/assets/1d297096-668a-4eea-9bff-7a29ea6f24ec" />
+
+<img width="964" height="564" alt="image" src="https://github.com/user-attachments/assets/22b32685-4b1c-47a9-a765-6cb2ddce2627" />
+
+</details>
+
+<details><summary></summary></details>
+
+<details>  
+<summary>SSTI1</summary>
 
 > Server side template injection
 > Mainly used on python web servers which render template
@@ -127,9 +142,4 @@ took some thought, but the %3D in the end kinda gave it away as url encoded
 <img width="1238" height="505" alt="image" src="https://github.com/user-attachments/assets/851c413c-52d5-4c82-9b92-45b7e57f58b2" />
 
   <img width="1226" height="477" alt="image" src="https://github.com/user-attachments/assets/6db70677-71b0-4219-98c1-2acfe156b940" />
-</details>
-
-
-<details>
-<summary></summary>
 </details>

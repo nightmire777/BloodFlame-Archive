@@ -1,6 +1,19 @@
 WEB!
 <details><summary></summary></details>
 
+<details><summary>Bookmarklet</summary>
+
+<img width="1051" height="631" alt="image" src="https://github.com/user-attachments/assets/4d072a2b-7f59-4ccd-b833-a77fecf6303c" />
+
+This again, but this time, its some javascript, copied it, put it into a new html file and ran it locally, got the flag. 
+
+Got confused and apparently, i forgot i could also run javascript on the terminal and apparently thats how most writeups do it.... Makes my methos stupid but unique in a way. 
+<img width="1051" height="631" alt="image" src="https://github.com/user-attachments/assets/d813f73b-65c6-408a-ba33-33f9c6d6f503" />
+
+<img width="960" height="498" alt="image" src="https://github.com/user-attachments/assets/30acacca-0acd-4e39-8524-6ab33e084773" />
+</details>
+
+
 <details><summary>Unminify</summary>
 
 <img width="1148" height="500" alt="image" src="https://github.com/user-attachments/assets/47cbbf58-f1b9-4527-af88-a41d58298db0" />

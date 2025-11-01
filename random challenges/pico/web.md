@@ -116,5 +116,20 @@ Some comments found in the html
 </details>
 
 <details>
+<summary> 
+Cookie Monster Secret Recipe
+</summary>
+
+found the cookie, now what? 
+<img width="1918" height="878" alt="image" src="https://github.com/user-attachments/assets/685f8a0c-603a-4023-8b5b-e2dc8ee40b5a" />
+
+took some thought, but the %3D in the end kinda gave it away as url encoded
+<img width="1238" height="505" alt="image" src="https://github.com/user-attachments/assets/851c413c-52d5-4c82-9b92-45b7e57f58b2" />
+
+  <img width="1226" height="477" alt="image" src="https://github.com/user-attachments/assets/6db70677-71b0-4219-98c1-2acfe156b940" />
+</details>
+
+
+<details>
 <summary></summary>
 </details>

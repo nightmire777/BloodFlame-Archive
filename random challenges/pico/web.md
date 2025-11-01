@@ -1,6 +1,123 @@
 WEB!
 <details><summary></summary></details>
 
+Easy 
+-
+<details><summary>GET aHEAD</summary>
+
+<img width="1918" height="878" alt="image" src="https://github.com/user-attachments/assets/e72955f1-0ddb-4ec2-a98e-fc6e758afc6a" />
+So apparently, GET means red, POST means blue, OPTIONS mean ?, and WHAT DOES THE HEAD MEAN 
+
+<img width="1261" height="512" alt="image" src="https://github.com/user-attachments/assets/b26c687a-372d-4b23-995d-ec3bdc633def" />
+
+<img width="972" height="450" alt="image" src="https://github.com/user-attachments/assets/4dd0c7e9-47b3-4822-bb25-804517ff8eba" />
+
+</details>
+
+<details><summary>IntroToBurp</summary>
+
+Hint says send malformed requests, something that is sometimes forgotten as errors can reveal information
+<img width="1581" height="629" alt="image" src="https://github.com/user-attachments/assets/3178aef9-76e1-41e0-8e77-5cd2427f255c" />
+<img width="1581" height="629" alt="image" src="https://github.com/user-attachments/assets/ccbf8838-c367-4003-9b09-d44028e5cbf9" />
+
+<img width="954" height="483" alt="image" src="https://github.com/user-attachments/assets/fe169865-580e-4f67-a2ac-31a025350c78" />
+
+
+</details>
+
+
+<details><summary>dont-use-client-side</summary>
+
+<img width="992" height="441" alt="image" src="https://github.com/user-attachments/assets/068cea4e-0d2b-47c5-83a8-39e1d4955a3a" />
+After a bunch or rearranging......
+
+<img width="992" height="441" alt="image" src="https://github.com/user-attachments/assets/a840a0a3-752f-4726-b54a-690654c499b6" />
+
+</details>
+
+
+
+<details><summary>logon</summary>
+
+<img width="1300" height="652" alt="image" src="https://github.com/user-attachments/assets/884af291-8c42-4fcf-bdfd-dba67ced7a8c" />
+Change admin to true and refresh 
+<img width="995" height="329" alt="image" src="https://github.com/user-attachments/assets/97668284-3537-466c-8aa0-df284a07e353" />
+
+<img width="952" height="490" alt="image" src="https://github.com/user-attachments/assets/4edfc722-a8fc-46f3-9d49-357d1600c86b" />
+
+
+
+</details>
+
+<details><summary>Insp3ct0r</summary>
+<img width="1817" height="796" alt="image" src="https://github.com/user-attachments/assets/ea765090-f624-4eeb-879b-e6f86ad4d423" />
+      
+<img width="952" height="490" alt="image" src="https://github.com/user-attachments/assets/15de4f03-189d-4fad-b032-7422ba46a890" />
+
+</details>
+
+<details><summary>where are the robots</summary>
+
+Access robots.txt to find the disallowed page 
+<img width="961" height="458" alt="image" src="https://github.com/user-attachments/assets/880ff1cb-3a6e-471c-94f9-abf92e5bbf8c" />
+
+<img width="961" height="458" alt="image" src="https://github.com/user-attachments/assets/0831e2d1-13cd-4eb7-97e0-4128a2e2725b" />
+
+</details>
+
+
+<details><summary>Scavenger Hunt</summary>
+
+<img width="1769" height="730" alt="image" src="https://github.com/user-attachments/assets/b1e34605-573b-423a-ad63-671f6a683c2a" />
+<img width="872" height="168" alt="image" src="https://github.com/user-attachments/assets/35eb390a-f562-468a-9b14-a29f95158f00" />
+<img width="872" height="168" alt="image" src="https://github.com/user-attachments/assets/7180c082-bbb2-435e-b43f-0e80fbeeddfa" />
+
+yes i read the last part up......
+
+<img width="961" height="458" alt="image" src="https://github.com/user-attachments/assets/e92415b1-02bc-4c28-9253-3a0ebf19570e" />
+Would have ran some fuzzer if not for the hint
+
+</details>
+
+
+<details><summary>Cookies</summary>
+
+This one is just annoying 
+
+<img width="1211" height="619" alt="image" src="https://github.com/user-attachments/assets/fceb267a-4f1a-445f-a05d-785dba1b6c5b" />
+<img width="1211" height="619" alt="image" src="https://github.com/user-attachments/assets/1296594c-c3e6-4a96-8e4c-9ccfbbc4713f" />
+
+
+<img width="1241" height="654" alt="image" src="https://github.com/user-attachments/assets/0b0483ca-68a0-4613-8ee2-69fe833f8217" />
+<img width="1241" height="654" alt="image" src="https://github.com/user-attachments/assets/c2426a86-5023-4efa-ba12-8e6793dcf5a3" />
+Simply saying, this value for the cookie "name" will keep changing if you put in different cookies. 
+
+<img width="1562" height="642" alt="image" src="https://github.com/user-attachments/assets/5ce10cdd-e2dd-4610-8014-b1211365475e" />
+So by bruteforcing through each cookie starting from value 1, i now have a database of the cookies, and the flag too on the 18th try 
+
+<img width="990" height="440" alt="image" src="https://github.com/user-attachments/assets/63e117b8-db0f-4787-bcb7-1ac1b862d18a" />
+
+</details>
+
+<details><summary>Includes</summary>
+
+<img width="774" height="453" alt="image" src="https://github.com/user-attachments/assets/6426f11e-f07c-4a2d-b504-d2d885b860fa" />
+Since it says on include, which is like using code from a different file.... click all the underlined text to reassemble the flag. 
+
+<img width="994" height="336" alt="image" src="https://github.com/user-attachments/assets/3c133157-b42d-400b-ba76-75a0b1e741d6" />
+
+<img width="981" height="521" alt="image" src="https://github.com/user-attachments/assets/a113e64c-7cca-49c5-bd49-61bd952e47e5" />
+
+</details>
+
+<details><summary>Inspect HTML</summary>
+      
+no comment, but will document 
+<img width="583" height="472" alt="image" src="https://github.com/user-attachments/assets/03b92c93-93b1-4476-b973-98e9fa0ad7d7" />
+<img width="983" height="463" alt="image" src="https://github.com/user-attachments/assets/5afcacdb-efb3-4233-97e1-15084f8552b0" />
+
+</details>
+
 <details><summary>Local Authority</summary>
 
 <img width="594" height="326" alt="image" src="https://github.com/user-attachments/assets/424b8336-21ed-4ccc-b2a8-3dfa6ee70250" />

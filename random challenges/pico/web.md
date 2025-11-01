@@ -1,7 +1,14 @@
 WEB!
+<details><summary></summary></details>
 
+<details><summary>Unminify</summary>
 
+<img width="1148" height="500" alt="image" src="https://github.com/user-attachments/assets/47cbbf58-f1b9-4527-af88-a41d58298db0" />
+<img width="1123" height="94" alt="image" src="https://github.com/user-attachments/assets/45a3f8e2-cd7f-410c-a056-c8f32aa53232" />
+Literally no explanation needed. 
 
+<img width="1148" height="500" alt="image" src="https://github.com/user-attachments/assets/a39b8169-b5a8-442f-8b1a-e7c899a4e168" />
+</details>
 
 
 
@@ -15,7 +22,7 @@ WEB!
 
 </details>
 
-<details><summary></summary></details>
+
 
 <details>  
 <summary>SSTI1</summary>

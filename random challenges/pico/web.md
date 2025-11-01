@@ -92,3 +92,29 @@ By executing this command, we are able to read the flag file in the /root direct
 
 
 </details>
+
+<details>
+<summary>Crack the Gate 1</summary>
+
+<img width="946" height="638" alt="image" src="https://github.com/user-attachments/assets/429cbd3b-ce98-4ff5-983b-c19771bf99c5" />
+<img width="946" height="638" alt="image" src="https://github.com/user-attachments/assets/311a1946-1546-4f9d-b644-26b881ef229e" />
+
+so got login page , but no acccess. 
+
+```
+ <!-- ABGR: Wnpx - grzcbenel olcnff: hfr urnqre "K-Qri-Npprff: lrf" -->
+<!-- Remove before pushing to production! -->
+```
+
+Some comments found in the html
+ after decoding , you get ```NOTE: Jack - temporary bypass: use header "X-Dev-Access: yes```
+
+<img width="1226" height="477" alt="image" src="https://github.com/user-attachments/assets/584575b0-22ee-4420-8537-eebc741c9262" />
+
+ So just add the header and done 
+
+</details>
+
+<details>
+<summary></summary>
+</details>

@@ -1,6 +1,69 @@
 WEB!
 <details><summary></summary></details>
 
+<details><summary>Local Authority</summary>
+
+<img width="594" height="326" alt="image" src="https://github.com/user-attachments/assets/424b8336-21ed-4ccc-b2a8-3dfa6ee70250" />
+Lovely customer portal you have, lets try to login 
+
+<img width="594" height="326" alt="image" src="https://github.com/user-attachments/assets/4ba03e6f-afe7-47d7-bb80-9999a27ed943" />
+
+After failing to login, the page displays this,, however the checkPassword function is not on the page. Its linked on a different .js file which can also be reached and in there is the final function that shows the correct set of credentials 
+<img width="594" height="326" alt="image" src="https://github.com/user-attachments/assets/2a011a33-5667-4ef3-bcb4-ab451daeaa06" />
+
+'''
+
+      function filter(string) {
+        filterPassed = true;
+        for (let i =0; i < string.length; i++){
+          cc = string.charCodeAt(i);
+          
+          if ( (cc >= 48 && cc <= 57) ||
+               (cc >= 65 && cc <= 90) ||
+               (cc >= 97 && cc <= 122) )
+          {
+            filterPassed = true;     
+          }
+          else
+          {
+            return false;
+          }
+        }
+        
+        return true;
+      }
+    
+      window.username = "wihlelmina";
+      window.password = "frost";
+      
+      usernameFilterPassed = filter(window.username);
+      passwordFilterPassed = filter(window.password);
+      
+      if ( usernameFilterPassed && passwordFilterPassed ) {
+      
+        loggedIn = checkPassword(window.username, window.password);
+        
+        if(loggedIn)
+        {
+          document.getElementById('msg').innerHTML = "Log In Successful";
+          document.getElementById('adminFormHash').value = "2196812e91c29df34f5e217cfd639881";
+          document.getElementById('hiddenAdminForm').submit();
+        }
+        else
+        {
+          document.getElementById('msg').innerHTML = "Log In Failed";
+        }
+      }
+      else {
+        document.getElementById('msg').innerHTML = "Illegal character in username or password."
+      }
+'''
+<img width="972" height="523" alt="image" src="https://github.com/user-attachments/assets/2936ccdd-ebde-4c37-a4cc-bc03f59a9391" />
+
+
+
+
+</details>
 <details><summary>Bookmarklet</summary>
 
 <img width="1051" height="631" alt="image" src="https://github.com/user-attachments/assets/4d072a2b-7f59-4ccd-b833-a77fecf6303c" />

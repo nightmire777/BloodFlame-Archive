@@ -1,6 +1,50 @@
 WEB!
 
 <details><summary></summary></details>
+<details><summary>3v@l</summary>
+
+
+So according to this convinient comment, theres 2 things to bypass, the word restriction and some regex checks 
+```
+    TODO
+    ------------
+    Secure python_flask eval execution by 
+        1.blocking malcious keyword like os,eval,exec,bind,connect,python,socket,ls,cat,shell,bind
+        2.Implementing regex: r'0x[0-9A-Fa-f]+|\\u[0-9A-Fa-f]{4}|%[0-9A-Fa-f]{2}|\.[A-Za-z0-9]{1,3}\b|[\\\/]|\.\.'
+
+REGEX EXPLANATION
+    0x[0-9A-Fa-f]+		catches strings matching 0x followed by 1 or more (represented by +)  characters 
+    |				OR
+    \\u[0-9A-Fa-f]{4}	catches strings matching \u followed by 4 or more (represented by {4}) characters
+    |				OR
+    %[0-9A-Fa-f]{2}		string must match % following by 2  (represented by {2}) charracters
+    |				OR
+    \.[A-Za-z0-9]{1,3}\b	catches file extension to match 1 or 3 characters (represented by {1,3})
+    |				OR
+    [\\\/]			catches a \ or / 
+    |				OR
+    \.\.			this apparently is 2 . escaped by the \, which catches intsances of ..
+
+```
+
+
+
+
+
+After a bunch of revisiting python basics and trials, found a payload that works as the hints shows the fag is at /flag.txt. Using this final payload read the text file. 
+```open(__import__("base64").b64decode("L2ZsYWcudHh0").decode()).read()```
+
+<img width="970" height="673" alt="image" src="https://github.com/user-attachments/assets/0bbb3c2b-7411-4935-aec6-542958e31ba9" />
+
+<img width="992" height="540" alt="image" src="https://github.com/user-attachments/assets/a817c2a7-c13a-4d5a-baad-a524f4cfc25c" />
+
+<img width="970" height="673" alt="image" src="https://github.com/user-attachments/assets/ef059070-c73f-4933-8c1f-61939369c30c" />
+
+</details>
+
+<details><summary>3v@l</summary>
+
+</details>
 
 <details><summary>SSTI2</summary>
 
@@ -8,7 +52,8 @@ WEB!
 <img width="1081" height="715" alt="image" src="https://github.com/user-attachments/assets/73465771-bc97-48e2-b137-0a74e8299109" />
 Funny that it can act as a calculator tho
 
-<img width="992" height="540" alt="image" src="https://github.com/user-attachments/assets/d9625174-21ab-4674-957a-b8c7c40c4e91" />
+<img width="992" height="540" alt="image" src="https://github.com/user-attachments/assets/5964d474-221c-49c3-9bd0-e0766d80b679" />
+
 
 After some testing, it appears to just straight out remove ```_ . [] ()``` from requests. And in other cases, using things like ```__global__``` or ```.read()``` will get flagged too. Using the ppower of searching online, we have disovered an insane payload. 
 

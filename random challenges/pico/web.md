@@ -42,10 +42,6 @@ After a bunch of revisiting python basics and trials, found a payload that works
 
 </details>
 
-<details><summary>3v@l</summary>
-
-</details>
-
 <details><summary>SSTI2</summary>
 
 <img width="1081" height="715" alt="image" src="https://github.com/user-attachments/assets/c64512af-077a-4625-b871-b7a9e5d7bb9a" />

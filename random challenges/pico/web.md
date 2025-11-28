@@ -56,7 +56,13 @@ Medium
 -
 
 <details><summary></summary></details>
-<details><summary></summary></details>
+<details><summary>Secrets</summary>
+<img width="873" height="292" alt="image" src="https://github.com/user-attachments/assets/9ac19c0d-61a8-45da-a857-e35a55fcff0d" />
+literally keep finding the folders from the web source code.
+
+<img width="657" height="483" alt="image" src="https://github.com/user-attachments/assets/84759a84-9e89-45cc-9aee-df831edeeb8c" />
+
+</details>
 
 
 <details><summary>picobrowser</summary>

@@ -55,7 +55,14 @@ To then access the injected page, the name with the unique ID can be found in th
 Medium 
 -
 
-<details><summary></summary></details>
+<details><summary>Search source</summary>
+
+<img width="657" height="483" alt="image" src="https://github.com/user-attachments/assets/d7e3bd21-6e08-433e-a839-3d14d4ee9b4a" />
+So its literally in one of the css files, just ctrrl f in all files found in the source code. Apparently there are tools to clone the whole page like HTTrack then can just use grep to find the flag, maybe i was lucky ?
+
+</details>
+
+
 <details><summary>Secrets</summary>
 <img width="873" height="292" alt="image" src="https://github.com/user-attachments/assets/9ac19c0d-61a8-45da-a857-e35a55fcff0d" />
 literally keep finding the folders from the web source code.

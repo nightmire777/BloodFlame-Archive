@@ -21,7 +21,13 @@ and with that im ben (10)
 <img width="647" height="191" alt="image" src="https://github.com/user-attachments/assets/68e46694-3682-430f-99b9-69f227c93c5f" />
 
 
-more recon
 -
+-
+So heres what I know
+- The server runs MCP (hit with CVE) and PrivateBin 2.0.2
+- Users are Ben (in control) and Alice
+- Website has https for some reason?
+- services present: nginx, php, python
 
+tbc
 

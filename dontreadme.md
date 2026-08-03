@@ -1,8 +1,6 @@
 > [!IMPORTANT]
 > To whoever might be reading this file
 > 
-> some writeups do have more **interesting** language which I have hidden(if you do decide to view it in code mode instead of the nice mode)
-> 
 > these are self notes for me to refer back in the future
 > 
 > lastly, I wish whoever that is reading this a good day and you achieve what you came here for
